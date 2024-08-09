@@ -50,6 +50,8 @@ def zonoml_manager_alloc():
         zonoml_manager_alloc_c.restype = ElinaManagerPtr
         zonoml_manager_alloc_c.argtypes = None
         man = zonoml_manager_alloc_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "zonoml_manager_alloc" from "libzonoml.so"')
 
@@ -85,6 +87,8 @@ def zonotope_from_network_input(man, intdim, realdim, inf_array, sup_array):
         zonotope_from_network_input_c.restype = ElinaAbstract0Ptr
         zonotope_from_network_input_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ndpointer(ctypes.c_double), ndpointer(ctypes.c_double)]
         res = zonotope_from_network_input_c(man,intdim, realdim, inf_array, sup_array)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "zonotope_from_network_input" from "libzonoml.so"')
         print(inst)
@@ -120,6 +124,8 @@ def elina_abstract0_from_zonotope(man, intdim, realdim, num_error_terms, zonotop
         elina_abstract0_from_zonotope_c.restype = ElinaAbstract0Ptr
         elina_abstract0_from_zonotope_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, c_size_t, _doublepp]
         res = elina_abstract0_from_zonotope_c(man,intdim, realdim, num_error_terms, zonotope)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "elina_abstract0_from_zonotope" from "libzonoml.so"')
         print(inst)
@@ -163,6 +169,8 @@ def ffn_matmult_zono(man, destructive, element, start_offset, weights, bias, num
         ffn_matmult_zono_c.restype = ElinaAbstract0Ptr
         ffn_matmult_zono_c.argtypes = [ElinaManagerPtr, c_bool,  ElinaAbstract0Ptr, ElinaDim, _doublepp, ndpointer(ctypes.c_double), c_size_t, c_size_t, c_size_t]
         res = ffn_matmult_zono_c(man, destructive, element, start_offset, weights, bias, num_var, expr_offset, expr_size)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_matmult_zono" from "libzonoml.so"')
         print(inst)
@@ -204,6 +212,8 @@ def ffn_matmult_without_bias_zono(man, destructive, element, start_offset, weigh
         ffn_matmult_without_bias_zono_c.restype = ElinaAbstract0Ptr
         ffn_matmult_without_bias_zono_c.argtypes = [ElinaManagerPtr, c_bool,  ElinaAbstract0Ptr, ElinaDim, _doublepp, c_size_t, c_size_t, c_size_t]
         res = ffn_matmult_without_bias_zono_c(man, destructive, element, start_offset, weights,  num_var, expr_offset, expr_size)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_matmult_without_bias_zono" from "libzonoml.so"')
         print(inst)
@@ -241,6 +251,8 @@ def ffn_add_bias_zono(man, destructive, element, start_offset,  bias, num_var):
         ffn_add_bias_zono_c.restype = ElinaAbstract0Ptr
         ffn_add_bias_zono_c.argtypes = [ElinaManagerPtr, c_bool,  ElinaAbstract0Ptr, ElinaDim, ndpointer(ctypes.c_double), c_size_t]
         res = ffn_add_bias_zono_c(man, destructive, element, start_offset, bias, num_var)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_add_bias_zono" from "libzonoml.so"')
         print(inst)
@@ -277,6 +289,8 @@ def ffn_sub_bias_zono(man, destructive, element, start_offset,  bias, is_minuend
         ffn_sub_bias_zono_c.restype = ElinaAbstract0Ptr
         ffn_sub_bias_zono_c.argtypes = [ElinaManagerPtr, c_bool,  ElinaAbstract0Ptr, ElinaDim, ndpointer(ctypes.c_double), c_bool, c_size_t]
         res = ffn_sub_bias_zono_c(man, destructive, element, start_offset, bias, is_minuend, num_var)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_sub_bias_zono" from "libzonoml.so"')
         print(inst)
@@ -314,6 +328,8 @@ def ffn_mul_bias_zono(man, destructive, element, start_offset,  bias, num_var):
         ffn_mul_bias_zono_c.restype = ElinaAbstract0Ptr
         ffn_mul_bias_zono_c.argtypes = [ElinaManagerPtr, c_bool,  ElinaAbstract0Ptr, ElinaDim, ndpointer(ctypes.c_double), c_size_t]
         res = ffn_mul_bias_zono_c(man, destructive, element, start_offset, bias, num_var)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_mul_bias_zono" from "libzonoml.so"')
         print(inst)
@@ -364,6 +380,8 @@ def conv_matmult_zono(man, destructive, element, start_offset, filter_weights, f
         conv_matmult_zono_c.restype = ElinaAbstract0Ptr
         conv_matmult_zono_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, ndpointer(ctypes.c_double), ndpointer(ctypes.c_double), POINTER(c_size_t), c_size_t, POINTER(c_size_t), c_size_t, POINTER(c_size_t), POINTER(c_size_t), c_size_t, c_size_t, c_bool]
         res = conv_matmult_zono_c(man, destructive, element, start_offset, filter_weights, filter_bias, input_size, expr_offset, filter_size, num_filters, strides, output_size, pad_top, pad_left, has_bias)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "conv_matmult_zono" from "libzonoml.so"')
         print(inst)
@@ -397,6 +415,8 @@ def relu_zono(man,destructive,elem,x):
         relu_zono_c.restype = ElinaAbstract0Ptr
         relu_zono_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim]
         res = relu_zono_c(man,destructive,elem,x)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "relu_zono" from "libzonoml.so"')
 
@@ -433,6 +453,8 @@ def relu_zono_refined(man,destructive,elem,x, new_inf, new_sup):
         relu_zono_refined_c.restype = ElinaAbstract0Ptr
         relu_zono_refined_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, c_double, c_double]
         res = relu_zono_refined_c(man,destructive,elem,x, new_inf, new_sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "relu_zono_refined" from "libzonoml.so"')
 
@@ -470,6 +492,8 @@ def maxpool_zono_refined(man,destructive,elem,x, new_inf, new_sup):
         maxpool_zono_refined_c.restype = ElinaAbstract0Ptr
         maxpool_zono_refined_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, c_double, c_double]
         res = maxpool_zono_refined_c(man,destructive,elem,x, new_inf, new_sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "maxpool_zono_refined" from "libzonoml.so"')
 
@@ -508,6 +532,8 @@ def relu_zono_layerwise(man,destructive,elem,start_offset, num_dim, create_new_n
         relu_zono_layerwise_c.restype = ElinaAbstract0Ptr
         relu_zono_layerwise_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, ElinaDim, c_bool]
         res = relu_zono_layerwise_c(man,destructive,elem,start_offset, num_dim, create_new_noise_symbol)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "relu_zono_layerwise" from "libzonoml.so"')
 
@@ -540,6 +566,8 @@ def sigmoid_zono(man,destructive,elem,x):
         sigmoid_zono_c.restype = ElinaAbstract0Ptr
         sigmoid_zono_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim]
         res = sigmoid_zono_c(man,destructive,elem,x)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "sigmoid_zono" from "libzonoml.so"')
 
@@ -575,6 +603,8 @@ def sigmoid_zono_layerwise(man,destructive,elem,start_offset, num_dim):
         sigmoid_zono_layerwise_c.restype = ElinaAbstract0Ptr
         sigmoid_zono_layerwise_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, ElinaDim]
         res = sigmoid_zono_layerwise_c(man,destructive,elem,start_offset, num_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "sigmoid_zono_layerwise" from "libzonoml.so"')
 
@@ -607,6 +637,8 @@ def tanh_zono(man,destructive,elem,x):
         tanh_zono_c.restype = ElinaAbstract0Ptr
         tanh_zono_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim]
         res = tanh_zono_c(man,destructive,elem,x)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "tanh_zono" from "libzonoml.so"')
 
@@ -643,6 +675,8 @@ def tanh_zono_layerwise(man,destructive,elem,start_offset, num_dim):
         tanh_zono_layerwise_c.restype = ElinaAbstract0Ptr
         tanh_zono_layerwise_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, ElinaDim]
         res = tanh_zono_layerwise_c(man,destructive,elem,start_offset, num_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "tanh_zono_layerwise" from "libzonoml.so"')
 
@@ -689,6 +723,8 @@ def pool_zono(man, destructive, elem, pool_size, input_size, src_offset, strides
         pool_zono_c.restype = ElinaAbstract0Ptr
         pool_zono_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, POINTER(c_size_t), POINTER(c_size_t), c_size_t, POINTER(c_size_t), c_size_t, c_size_t, c_size_t, c_size_t,POINTER(c_size_t), c_bool ]
         res = pool_zono_c(man,destructive,elem,pool_size,input_size, src_offset, strides, dimensionality, dst_offset, pad_top, pad_left, output_shape, is_maxpool)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "maxpool_zono" from "libzonoml.so"')
         print(inst)
@@ -722,6 +758,8 @@ def is_greater_zono(man, element, y, x):
         is_greater_c.restype = c_bool
         is_greater_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim, ElinaDim]
         res = is_greater_c(man,element,y, x)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "is_greater" from "libzonoml.so"')
         print(inst)
@@ -752,6 +790,8 @@ def affine_form_is_box(man, element, x):
         affine_form_is_box_c.restype = c_bool
         affine_form_is_box_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim]
         res = affine_form_is_box_c(man,element, x)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "affine_form_is_box" from "libzonoml.so"')
         print(inst)
@@ -784,6 +824,8 @@ def zono_add(man, element, dst_offset, src_offset, num_var):
         zono_add_c.restype = None
         zono_add_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t, c_size_t]
         zono_add_c(man,element,dst_offset, src_offset, num_var)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "zono_add" from "libzonoml.so"')
         print(inst)
@@ -816,6 +858,8 @@ def zono_copy_section(man, element, dst_offset, src_offset, num_var):
         zono_copy_section_c.restype = None
         zono_copy_section_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t, c_size_t]
         zono_copy_section_c(man,element,dst_offset, src_offset, num_var)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "zono_copy_section" from "libzonoml.so"')
         print(inst)
@@ -844,6 +888,8 @@ def get_interval_width_var_zono(man, element, i):
         get_interval_width_var_zono_c.restype = c_double
         get_interval_width_var_zono_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t]
         width = get_interval_width_var_zono_c(man,element,i)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "get_interval_width_var_zono" from "libzonoml.so"')
         print(inst)
@@ -876,6 +922,8 @@ def handle_gather_layer(man, destructive, element, indexes):
         handle_gather_layer_c.restype = ElinaAbstract0Ptr
         handle_gather_layer_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ndpointer(c_size_t)]
         res = handle_gather_layer_c(man,destructive, element, indexes)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "handle_gather_layer" from "libzonoml.so"')
         print(inst)
@@ -906,6 +954,8 @@ def get_affine_form_for_dim(man,element,dim):
         get_affine_form_for_dim_c.restype = POINTER(c_double)
         get_affine_form_for_dim_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t]
         array = get_affine_form_for_dim_c(man, element, dim)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "get_affine_form_for_dim" from "libzonoml.so"')
         print(inst)

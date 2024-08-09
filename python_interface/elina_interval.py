@@ -42,6 +42,8 @@ def elina_interval_alloc():
         elina_interval_alloc_c = elina_auxiliary_api.elina_interval_alloc
         elina_interval_alloc_c.restype = ElinaIntervalPtr
         interval = elina_interval_alloc_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_alloc" from "libelinaux.so"')
 
@@ -70,6 +72,8 @@ def elina_interval_reinit(interval, elina_scalar_discr):
         elina_interval_reinit_c.restype = None
         elina_interval_reinit_c.argtypes = [ElinaIntervalPtr, c_uint]
         elina_interval_reinit_c(interval, elina_scalar_discr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_reinit" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and c_uint to the function')
@@ -95,6 +99,8 @@ def elina_interval_free(interval):
         elina_interval_free_c.restype = None
         elina_interval_free_c.argtypes = [ElinaIntervalPtr]
         elina_interval_free_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -122,6 +128,8 @@ def elina_interval_fprint(stream, interval):
         elina_interval_fprint_c.restype = None
         elina_interval_fprint_c.argtypes = [c_void_p, ElinaIntervalPtr]
         elina_interval_fprint_c(stream, interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p and ElinaIntervalPtr to the function')
@@ -154,6 +162,8 @@ def elina_interval_set(interval1, interval2):
         elina_interval_set_c.restype = None
         elina_interval_set_c.argtypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         elina_interval_set_c(interval1, interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and ElinaIntervalPtr to the function')
@@ -183,6 +193,8 @@ def elina_interval_set_scalar(interval, inf, sup):
         elina_interval_set_scalar_c.restype = None
         elina_interval_set_scalar_c.argtypes = [ElinaIntervalPtr, ElinaScalarPtr, ElinaScalarPtr]
         elina_interval_set_scalar_c(interval, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, ElinaScalarPtr and ElinaScalarPtr to the function')
@@ -212,6 +224,8 @@ def elina_interval_set_mpq(interval, inf, sup):
         elina_interval_set_mpq_c.restype = None
         elina_interval_set_mpq_c.argtypes = [ElinaIntervalPtr, Mpq_t, Mpq_t]
         elina_interval_set_mpq_c(interval, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_mpq" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, Mpq_t and Mpq_t to the function')
@@ -241,6 +255,8 @@ def elina_interval_set_int(interval, inf, sup):
         elina_interval_set_int_c.restype = None
         elina_interval_set_int_c.argtypes = [ElinaIntervalPtr, c_long, c_long]
         elina_interval_set_int_c(interval, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_int" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, c_long and c_long to the function')
@@ -274,6 +290,8 @@ def elina_interval_set_frac(interval, num_inf, den_inf, num_sup, den_sup):
         elina_interval_set_frac_c.restype = None
         elina_interval_set_frac_c.argtypes = [ElinaIntervalPtr, c_long, c_ulong, c_long, c_ulong]
         elina_interval_set_frac_c(interval, num_inf, den_inf, num_sup, den_sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_frac" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, c_long, c_ulong, c_long and c_ulong to the function')
@@ -303,6 +321,8 @@ def elina_interval_set_double(interval, inf, sup):
         elina_interval_set_double_c.restype = None
         elina_interval_set_double_c.argtypes = [ElinaIntervalPtr, c_double, c_double]
         elina_interval_set_double_c(interval, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_double" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, c_double and c_double to the function')
@@ -332,6 +352,8 @@ def elina_interval_set_mpfr(interval, inf, sup):
         elina_interval_set_mpfr_c.restype = None
         elina_interval_set_mpfr_c.argtypes = [ElinaIntervalPtr, Mpfr_t, Mpfr_t]
         elina_interval_set_mpfr_c(interval, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_mpfr" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr, Mpfr_t and Mpfr_t to the function')
@@ -357,6 +379,8 @@ def elina_interval_set_top(interval):
         elina_interval_set_top_c.restype = None
         elina_interval_set_top_c.argtypes = [ElinaIntervalPtr]
         elina_interval_set_top_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -382,6 +406,8 @@ def elina_interval_set_bottom(interval):
         elina_interval_set_bottom_c.restype = None
         elina_interval_set_bottom_c.argtypes = [ElinaIntervalPtr]
         elina_interval_set_bottom_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_set_bottom" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -413,6 +439,8 @@ def elina_interval_alloc_set(interval2):
         elina_interval_alloc_set_c.restype = ElinaIntervalPtr
         elina_interval_alloc_set_c.argtypes = [ElinaIntervalPtr]
         interval1 = elina_interval_alloc_set_c(interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_alloc_set" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -447,6 +475,8 @@ def elina_interval_is_top(interval):
         elina_interval_is_top_c.restype = c_bool
         elina_interval_is_top_c.argtypes = [ElinaIntervalPtr]
         result = elina_interval_is_top_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_is_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -476,6 +506,8 @@ def elina_interval_is_bottom(interval):
         elina_interval_is_bottom_c.restype = c_bool
         elina_interval_is_bottom_c.argtypes = [ElinaIntervalPtr]
         result = elina_interval_is_bottom_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_is_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -507,6 +539,8 @@ def elina_interval_is_leq(interval1, interval2):
         elina_interval_is_leq_c.restype = c_bool
         elina_interval_is_leq_c.argtypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         result = elina_interval_is_leq_c(interval1, interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_is_leq" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and ElinaIntervalPtr to the function')
@@ -543,6 +577,8 @@ def elina_interval_cmp(interval1, interval2):
         elina_interval_cmp_c.restype = c_int
         elina_interval_cmp_c.argtypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         result = elina_interval_cmp_c(interval1, interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_cmp" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and ElinaIntervalPtr to the function')
@@ -574,6 +610,8 @@ def elina_interval_equal(interval1, interval2):
         elina_interval_equal_c.restype = c_bool
         elina_interval_equal_c.argypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         result = elina_interval_equal_c(interval1, interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_equal" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and ElinaIntervalPtr to the function')
@@ -605,6 +643,8 @@ def elina_interval_equal_int(interval, b):
         elina_interval_equal_int_c.restype = c_bool
         elina_interval_equal_int_c.argtypes = [ElinaIntervalPtr, c_int]
         result = elina_interval_equal_int_c(interval, b)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_equal_int" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and c_int to the function')
@@ -639,6 +679,8 @@ def elina_interval_neg(interval1, interval2):
         elina_interval_neg_c.restype = None
         elina_interval_neg_c.argtypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         elina_interval_neg_c(interval1, interval2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_neg" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and ElinaIntervalPtr to the function')
@@ -666,6 +708,8 @@ def elina_interval_hash(interval):
         elina_interval_hash_c.restype = c_long
         elina_interval_hash_c.argtypes = [ElinaIntervalPtr]
         result = elina_interval_hash_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_hash" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -700,6 +744,8 @@ def elina_interval_array_alloc(size):
         elina_interval_array_alloc_c.restype = ElinaIntervalArray
         elina_interval_array_alloc_c.argtypes = [c_size_t]
         interval_array = elina_interval_array_alloc_c(size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_array_alloc" from "libelinaux.so"')
         print('Make sure you are passing c_size_t to the function')
@@ -729,6 +775,8 @@ def elina_interval_array_free(interval_array, size):
         elina_interval_array_free_c.restype = None
         elina_interval_array_free_c.argtypes = [ElinaIntervalArray, c_size_t]
         elina_interval_array_free_c(interval_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_interval_array_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr and c_size_t to the function')

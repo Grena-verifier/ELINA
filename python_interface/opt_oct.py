@@ -43,6 +43,8 @@ def opt_oct_manager_alloc():
         opt_oct_manager_alloc_c.restype = ElinaManagerPtr
         opt_oct_manager_alloc_c.argtypes = None
         man = opt_oct_manager_alloc_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "opt_oct_manager_alloc" from "liboptoct.so"')
 

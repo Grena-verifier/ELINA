@@ -55,6 +55,8 @@ def elina_dimchange_init(dimchange, intdim, realdim):
         elina_dimchange_init_c.restype = None
         elina_dimchange_init_c.argtypes = [ElinaDimchangePtr, c_size_t, c_size_t]
         elina_dimchange_init_c(dimchange, intdim, realdim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange_init" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimchangePtr, c_size_t, c_size_t to the function')
@@ -84,6 +86,8 @@ def elina_dimchange_alloc(intdim, realdim):
         elina_dimchange_alloc_c.restype = ElinaDimchangePtr
         elina_dimchange_alloc_c.argtypes = [c_size_t, c_size_t]
         dimchange = elina_dimchange_alloc_c(intdim, realdim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange_alloc" from "libelinaux.so"')
         print('Make sure you are passing c_size_t, c_size_t to the function')
@@ -113,6 +117,8 @@ def elina_dimchange_fprint(stream, dimchange):
         elina_dimchange_fprint_c.restype = None
         elina_dimchange_fprint_c.argtypes = [c_void_p, ElinaDimchangePtr]
         elina_dimchange_fprint_c(stream, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaDimchangePtr to the function')
@@ -138,6 +144,8 @@ def elina_dimchange_add_invert(dimchange):
         elina_dimchange_add_invert_c.restype = None
         elina_dimchange_add_invert_c.argtypes = [ElinaDimchangePtr]
         elina_dimchange_add_invert_c(dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange_add_invert" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimchangePtr to the function')
@@ -168,6 +176,8 @@ def elina_dimchange2_clear(dimchange2):
         elina_dimchange2_clear_c.restype = None
         elina_dimchange2_clear_c.argtypes = [ElinaDimchange2Ptr]
         elina_dimchange2_clear_c(dimchange2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange2_clear" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimchange2Ptr to the function')
@@ -193,6 +203,8 @@ def elina_dimchange_free(dimchange):
         elina_dimchange_free_c.restype = None
         elina_dimchange_free_c.argtypes = [ElinaDimchangePtr]
         elina_dimchange_free_c(dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimchangePtr to the function')
@@ -217,6 +229,8 @@ def elina_dimchange2_free(dimchange2):
         elina_dimchange2_free_c.restype = None
         elina_dimchange2_free_c.argtypes = [ElinaDimchange2Ptr]
         elina_dimchange2_free_c(dimchange2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange2_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimchange2Ptr to the function')
@@ -247,6 +261,8 @@ def elina_dimchange2_fprint(stream, dimchange2):
         elina_dimchange2_fprint_c.restype = None
         elina_dimchange2_fprint_c.argtypes = [c_void_p, ElinaDimchange2Ptr]
         elina_dimchange2_fprint_c(stream, dimchange2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimchange2_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaDimchange2Ptr to the function')
@@ -279,6 +295,8 @@ def elina_dimperm_init(dimperm, size):
         elina_dimperm_init_c.restype = None
         elina_dimperm_init_c.argtypes = [ElinaDimpermPtr, c_size_t]
         elina_dimperm_init_c(dimperm, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_init" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimpermPtr, c_size_t to the function')
@@ -306,6 +324,8 @@ def elina_dimperm_alloc(size):
         elina_dimperm_alloc_c.restype = ElinaDimpermPtr
         elina_dimperm_alloc_c.argtypes = [c_size_t]
         dimperm = elina_dimperm_alloc_c(size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_alloc" from "libelinaux.so"')
         print('Make sure you are passing c_size_t to the function')
@@ -335,6 +355,8 @@ def elina_dimperm_fprint(stream, dimperm):
         elina_dimperm_fprint_c.restype = None
         elina_dimperm_fprint_c.argtypes = [c_void_p, ElinaDimpermPtr]
         elina_dimperm_fprint_c(stream, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaDimpermPtr to the function')
@@ -360,6 +382,8 @@ def elina_dimperm_set_id(perm):
         elina_dimperm_set_id_c.restype = None
         elina_dimperm_set_id_c.argtypes = [ElinaDimpermPtr]
         elina_dimperm_set_id_c(perm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_set_id" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimpermPtr to the function')
@@ -391,6 +415,8 @@ def elina_dimperm_compose(perm, perm1, perm2):
         elina_dimperm_compose_c.restype = None
         elina_dimperm_compose_c.argtypes = [ElinaDimpermPtr, ElinaDimpermPtr, ElinaDimpermPtr]
         elina_dimperm_compose_c(perm, perm1, perm2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_set_id" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimpermPtr, ElinaDimpermPtr, ElinaDimpermPtr to the function')
@@ -419,6 +445,8 @@ def elina_dimperm_invert(nperm, perm):
         elina_dimperm_invert_c.restype = None
         elina_dimperm_invert_c.argtypes = [ElinaDimpermPtr, ElinaDimpermPtr]
         elina_dimperm_invert_c(nperm, perm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_dimperm_invert" from "libelinaux.so"')
         print('Make sure you are passing ElinaDimpermPtr, ElinaDimpermPtr to the function')

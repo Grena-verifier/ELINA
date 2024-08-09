@@ -48,6 +48,8 @@ def elina_coeff_alloc(discr):
         elina_coeff_alloc_c.restype = ElinaCoeffPtr
         elina_coeff_alloc_c.argtypes = [c_uint]
         coeff = elina_coeff_alloc_c(discr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_alloc" from "libelinaux.so"')
         print('Make sure you are passing c_uint to the function')
@@ -79,6 +81,8 @@ def elina_coeff_reinit(coeff, coeff_discr, scalar_discr):
         elina_coeff_reinit_c.restype = None
         elina_coeff_reinit_c.argtypes = [ElinaCoeffPtr, c_uint, c_uint]
         elina_coeff_reinit_c(coeff, coeff_discr, scalar_discr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_reinit" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_uint, c_uint to the function')
@@ -103,6 +107,8 @@ def elina_coeff_free(coeff):
         elina_coeff_free_c.restype = None
         elina_coeff_free_c.argtypes = [ElinaCoeffPtr]
         elina_coeff_free_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -130,6 +136,8 @@ def elina_coeff_fprint(stream, coeff):
         elina_coeff_fprint_c.restype = None
         elina_coeff_fprint_c.argtypes = [c_void_p, ElinaCoeffPtr]
         elina_coeff_fprint_c(stream, coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaCoeffPtr to the function')
@@ -155,6 +163,8 @@ def elina_coeff_reduce(coeff):
         elina_coeff_reduce_c.restype = None
         elina_coeff_reduce_c.argtypes = [ElinaCoeffPtr]
         elina_coeff_reduce_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_reduce" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -187,6 +197,8 @@ def elina_coeff_set(coeff1, coeff2):
         elina_coeff_set_c.restype = None
         elina_coeff_set_c.argtypes = [ElinaCoeffPtr, ElinaCoeffPtr]
         elina_coeff_set_c(coeff1, coeff2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaCoeffPtr to the function')
@@ -213,6 +225,8 @@ def elina_coeff_set_scalar(coeff, scalar):
         elina_coeff_set_scalar_c.restype = None
         elina_coeff_set_scalar_c.argtypes = [ElinaCoeffPtr, ElinaScalarPtr]
         elina_coeff_set_scalar_c(coeff, scalar)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaScalarPtr to the function')
@@ -240,6 +254,8 @@ def elina_coeff_set_scalar_mpq(coeff, mpq_t):
         elina_coeff_set_scalar_mpq_c.restype = None
         elina_coeff_set_scalar_mpq_c.argypes = [ElinaCoeffPtr, Mpq_t]
         elina_coeff_set_scalar_mpq_c(coeff, mpq_t)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar_mpq_c" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, Mpq_t to the function')
@@ -267,6 +283,8 @@ def elina_coeff_set_scalar_int(coeff, num):
         elina_coeff_set_scalar_int_c.restype = None
         elina_coeff_set_scalar_int_c.argypes = [ElinaCoeffPtr, c_long]
         elina_coeff_set_scalar_int_c(coeff, num)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar_int" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_long to the function')
@@ -296,6 +314,8 @@ def elina_coeff_set_scalar_frac(coeff, num, den):
         elina_coeff_set_scalar_frac_c.restype = None
         elina_coeff_set_scalar_frac_c.argypes = [ElinaCoeffPtr, c_long, c_ulong]
         elina_coeff_set_scalar_frac_c(coeff, num, den)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar_frac" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_long, c_ulong to the function')
@@ -323,6 +343,8 @@ def elina_coeff_set_scalar_double(coeff, num):
         elina_coeff_set_scalar_double_c.restype = None
         elina_coeff_set_scalar_double_c.argypes = [ElinaCoeffPtr, c_double]
         elina_coeff_set_scalar_double_c(coeff, num)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar_double" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_double to the function')
@@ -350,6 +372,8 @@ def elina_coeff_set_scalar_mpfr(coeff, mpfr_t):
         elina_coeff_set_scalar_mpfr_c.restype = None
         elina_coeff_set_scalar_mpfr_c.argtypes = [ElinaCoeffPtr, Mpfr_t]
         elina_coeff_set_scalar_mpfr_c(coeff, mpfr_t)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_scalar_mpfr" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, Mpfr_t to the function')
@@ -377,6 +401,8 @@ def elina_coeff_set_interval(coeff, interval):
         elina_coeff_set_interval_c.restype = None
         elina_coeff_set_interval_c.argtypes = [ElinaCoeffPtr, ElinaIntervalPtr]
         elina_coeff_set_interval_c(coeff, interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaIntervalPtr to the function')
@@ -406,6 +432,8 @@ def elina_coeff_set_interval_scalar(coeff, inf, sup):
         elina_coeff_set_interval_scalar_c.restype = None
         elina_coeff_set_interval_scalar_c.argtypes = [ElinaCoeffPtr, ElinaScalarPtr, ElinaScalarPtr]
         elina_coeff_set_interval_scalar_c(coeff, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaScalarPtr, ElinaScalarPtr to the function')
@@ -435,6 +463,8 @@ def elina_coeff_set_interval_mpq(coeff, inf, sup):
         elina_coeff_set_interval_mpq_c.restype = None
         elina_coeff_set_interval_mpq_c.argypes = [ElinaCoeffPtr, Mpq_t, Mpq_t]
         elina_coeff_set_interval_mpq_c(coeff, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_mpq" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, Mpq_t, Mpq_t to the function')
@@ -464,6 +494,8 @@ def elina_coeff_set_interval_int(coeff, inf, sup):
         elina_coeff_set_interval_int_c.restype = None
         elina_coeff_set_interval_int_c.argtypes = [ElinaCoeffPtr, c_long, c_long]
         elina_coeff_set_interval_int_c(coeff, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_int" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_long, c_long to the function')
@@ -497,6 +529,8 @@ def elina_coeff_set_interval_frac(coeff, numinf, deninf, numsup, densup):
         elina_coeff_set_interval_frac_c.restype = None
         elina_coeff_set_interval_frac_c.argtypes = [ElinaCoeffPtr, c_long, c_ulong, c_long, c_ulong]
         elina_coeff_set_interval_frac_c(coeff, numinf, deninf, numsup, densup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_frac" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_long, c_ulong, c_long, c_ulong to the function')
@@ -526,6 +560,8 @@ def elina_coeff_set_interval_double(coeff, inf, sup):
         elina_coeff_set_interval_double_c.restype = None
         elina_coeff_set_interval_double_c.argtypes = [ElinaCoeffPtr, c_double, c_double]
         elina_coeff_set_interval_double_c(coeff, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_double" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_double, c_double to the function')
@@ -551,6 +587,8 @@ def elina_coeff_set_interval_top(coeff):
         elina_coeff_set_interval_top_c.restype = None
         elina_coeff_set_interval_top_c.argtypes = [ElinaCoeffPtr]
         elina_coeff_set_interval_top_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -580,6 +618,8 @@ def elina_coeff_set_interval_mpfr(coeff, inf, sup):
         elina_coeff_set_interval_mpfr_c.restype = None
         elina_coeff_set_interval_mpfr_c.argtypes = [ElinaCoeffPtr, Mpfr_t, Mpfr_t]
         elina_coeff_set_interval_mpfr_c(coeff, inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_set_interval_mpfr" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, Mpfr_t, Mpfr_t to the function')
@@ -612,6 +652,8 @@ def elina_coeff_alloc_set(coeff2):
         elina_coeff_alloc_set_c.restype = ElinaCoeffPtr
         elina_coeff_alloc_set_c.argtypes = [ElinaCoeffPtr]
         coeff1 = elina_coeff_alloc_set_c(coeff2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_alloc_set" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -641,6 +683,8 @@ def elina_coeff_alloc_set_scalar(scalar):
         elina_coeff_alloc_set_scalar_c.restype = None
         elina_coeff_alloc_set_scalar_c.argtypes = [ElinaScalarPtr]
         coeff = elina_coeff_alloc_set_scalar_c(scalar)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_alloc_set_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaScalarPtr to the function')
@@ -670,6 +714,8 @@ def elina_coeff_alloc_set_interval(interval):
         elina_coeff_alloc_set_interval_c.restype = ElinaCoeffPtr
         elina_coeff_alloc_set_interval_c.argtypes = [ElinaIntervalPtr]
         elina_coeff_alloc_set_interval_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_alloc_set_interval" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -711,6 +757,8 @@ def elina_coeff_cmp(coeff1, coeff2):
         elina_coeff_cmp_c.restype = c_int
         elina_coeff_cmp_c.argtypes = [ElinaCoeffPtr, ElinaCoeffPtr]
         result = elina_coeff_cmp_c(coeff1, coeff2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_cmp" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaCoeffPtr to the function')
@@ -742,6 +790,8 @@ def elina_coeff_equal(coeff1, coeff2):
         elina_coeff_equal_c.restype = c_bool
         elina_coeff_equal_c.argtypes = [ElinaCoeffPtr, ElinaCoeffPtr]
         result = elina_coeff_equal_c(coeff1, coeff2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_equal" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaCoeffPtr to the function')
@@ -771,6 +821,8 @@ def elina_coeff_zero(coeff):
         elina_coeff_zero_c.restype = c_int
         elina_coeff_zero_c.argtypes = [ElinaCoeffPtr]
         result = elina_coeff_zero_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_zero" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -802,6 +854,8 @@ def elina_coeff_equal_int(coeff, i):
         elina_coeff_equal_int_c.restype = c_bool
         elina_coeff_equal_int_c.argtypes = [ElinaCoeffPtr, c_int]
         result = elina_coeff_equal_int_c(coeff, i)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_equal_int" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, c_int to the function')
@@ -836,6 +890,8 @@ def elina_coeff_neg(coeff1, coeff2):
         elina_coeff_neg_c.restype = None
         elina_coeff_neg_c.argtypes = [ElinaCoeffPtr, ElinaCoeffPtr]
         elina_coeff_neg_c(coeff1, coeff2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_neg" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr, ElinaCoeffPtr to the function')
@@ -863,6 +919,8 @@ def elina_coeff_hash(coeff):
         elina_coeff_hash_c.restype = c_long
         elina_coeff_hash_c.argtypes = [ElinaCoeffPtr]
         result = elina_coeff_hash_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_coeff_hash" from "libelinaux.so"')
         print('Make sure you are passing c_long to the function')

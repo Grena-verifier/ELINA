@@ -49,6 +49,8 @@ def elina_texpr0_cst(coeff):
         elina_texpr0_cst_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_c.argtypes = [ElinaCoeffPtr]
         texpr = elina_texpr0_cst_c(coeff)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst" from "libelinaux.so"')
         print('Make sure you are passing ElinaCoeffPtr to the function')
@@ -78,6 +80,8 @@ def elina_texpr0_cst_scalar(scalar):
         elina_texpr0_cst_scalar_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_c.argtypes = [ElinaScalarPtr]
         texpr = elina_texpr0_cst_scalar_c(scalar)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaScalarPtr to the function')
@@ -107,6 +111,8 @@ def elina_texpr0_cst_scalar_mpq(mpq_t):
         elina_texpr0_cst_scalar_mpq_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_mpq_c.argtypes = [Mpq_t]
         texpr = elina_texpr0_cst_scalar_mpq_c(mpq_t)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar_mpq" from "libelinaux.so"')
         print('Make sure you are passing Mpq_t to the function')
@@ -136,6 +142,8 @@ def elina_texpr0_cst_scalar_mpfr(mpfr_t):
         elina_texpr0_cst_scalar_mpfr_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_mpfr_c.argtypes = [Mpfr_t]
         texpr = elina_texpr0_cst_scalar_mpfr_c(mpfr_t)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar_mpfr" from "libelinaux.so"')
         print('Make sure you are passing Mpfr_t to the function')
@@ -165,6 +173,8 @@ def elina_texpr0_cst_scalar_int(num):
         elina_texpr0_cst_scalar_int_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_int_c.argtypes = [c_long]
         texpr = elina_texpr0_cst_scalar_int_c(num)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar_int" from "libelinaux.so"')
         print('Make sure you are passing c_long to the function')
@@ -196,6 +206,8 @@ def elina_texpr0_cst_scalar_frac(num, den):
         elina_texpr0_cst_scalar_frac_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_frac_c.argtypes = [c_long, c_ulong]
         texpr = elina_texpr0_cst_scalar_frac_c(num, den)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar_frac" from "libelinaux.so"')
         print('Make sure you are passing c_long, c_ulong to the function')
@@ -225,6 +237,8 @@ def elina_texpr0_cst_scalar_double(num):
         elina_texpr0_cst_scalar_double_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_scalar_double_c.argtypes = [c_double]
         texpr = elina_texpr0_cst_scalar_double_c(num)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_scalar_double" from "libelinaux.so"')
         print('Make sure you are passing c_double to the function')
@@ -254,6 +268,8 @@ def elina_texpr0_cst_interval(interval):
         elina_texpr0_cst_interval_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_c.argtypes = [ElinaIntervalPtr]
         texpr = elina_texpr0_cst_interval_c(interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval" from "libelinaux.so"')
         print('Make sure you are passing ElinaIntervalPtr to the function')
@@ -286,6 +302,8 @@ def elina_texpr0_cst_interval_scalar(inf, sup):
         elina_texpr0_cst_interval_scalar_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_scalar_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         texpr = elina_texpr0_cst_interval_scalar_c(inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaScalarPtr, ElinaScalarPtr to the function')
@@ -318,6 +336,8 @@ def elina_texpr0_cst_interval_mpq(inf, sup):
         elina_texpr0_cst_interval_mpq_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_mpq_c.argtypes = [Mpq_t, Mpq_t]
         texpr = elina_texpr0_cst_interval_mpq_c(inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_mpq" from "libelinaux.so"')
         print('Make sure you are passing Mpq_t, Mpq_t to the function')
@@ -350,6 +370,8 @@ def elina_texpr0_cst_interval_mpfr(inf, sup):
         elina_texpr0_cst_interval_mpfr_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_mpfr_c.argtypes = [Mpfr_t, Mpfr_t]
         texpr = elina_texpr0_cst_interval_mpfr_c(inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_mpfr" from "libelinaux.so"')
         print('Make sure you are passing Mpfr_t, Mpfr_t to the function')
@@ -382,6 +404,8 @@ def elina_texpr0_cst_interval_int(inf, sup):
         elina_texpr0_cst_interval_int_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_int_c.argtypes = [c_long, c_long]
         texpr = elina_texpr0_cst_interval_int_c(inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_int" from "libelinaux.so"')
         print('Make sure you are passing c_long, c_long to the function')
@@ -418,6 +442,8 @@ def elina_texpr0_cst_interval_frac(numinf, deninf, numsup, densup):
         elina_texpr0_cst_interval_frac_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_frac_c.argtypes = [c_long, c_ulong, c_long, c_ulong]
         texpr = elina_texpr0_cst_interval_frac_c(numinf, deninf, numsup, densup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_frac" from "libelinaux.so"')
         print('Make sure you are passing c_long, c_ulong, c_long, c_ulong to the function')
@@ -450,6 +476,8 @@ def elina_texpr0_cst_interval_double(inf, sup):
         elina_texpr0_cst_interval_double_c.restype = ElinaTexpr0Ptr
         elina_texpr0_cst_interval_double_c.argtypes = [c_double, c_double]
         texpr = elina_texpr0_cst_interval_double_c(inf, sup)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_double" from "libelinaux.so"')
         print('Make sure you are passing c_double, c_double to the function')
@@ -473,6 +501,8 @@ def elina_texpr0_cst_interval_top():
         elina_texpr0_cst_interval_top_c = elina_auxiliary_api.elina_texpr0_cst_interval_top
         elina_texpr0_cst_interval_top_c.restype = ElinaTexpr0Ptr
         texpr = elina_texpr0_cst_interval_top_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_cst_interval_top" from "libelinaux.so"')
 
@@ -501,6 +531,8 @@ def elina_texpr0_dim(dim):
         elina_texpr0_dim_c.restype = ElinaTexpr0Ptr
         elina_texpr0_dim_c.argtypes = [ElinaDim]
         texpr = elina_texpr0_dim_c(dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_dim" from "libelinaux.so"')
         print('Make sure you are passing ElinaDim to the function')
@@ -536,6 +568,8 @@ def elina_texpr0_unop(op, operand, type, dir):
         elina_texpr0_unop_c.restype = ElinaTexpr0Ptr
         elina_texpr0_unop_c.argtypes = [c_uint, ElinaTexpr0Ptr, c_uint, c_uint]
         texpr = elina_texpr0_unop_c(op, operand, type, dir)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_unop" from "libelinaux.so"')
         print('Make sure you are passing c_uint, ElinaTexpr0Ptr, c_uint, c_uint to the function')
@@ -573,6 +607,8 @@ def elina_texpr0_binop(op, operand_a, operand_b, type, dir):
         elina_texpr0_binop_c.restype = ElinaTexpr0Ptr
         elina_texpr0_binop_c.argtypes = [c_uint, ElinaTexpr0Ptr, ElinaTexpr0Ptr, c_uint, c_uint]
         texpr = elina_texpr0_binop_c(op, operand_a, operand_b, type, dir)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_binop" from "libelinaux.so"')
         print('Make sure you are passing c_uint, ElinaTexpr0Ptr, ElinaTexpr0Ptr, c_uint, c_uint to the function')
@@ -603,6 +639,8 @@ def elina_texpr0_copy(texpr2):
         elina_texpr0_copy_c.restype = ElinaTexpr0Ptr
         elina_texpr0_copy_c.argtypes = [ElinaTexpr0Ptr]
         texpr1 = elina_texpr0_copy_c(texpr2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_copy" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -630,6 +668,8 @@ def elina_texpr0_free(texpr):
         elina_texpr0_free_c.restype = None
         elina_texpr0_free_c.argtypes = [ElinaTexpr0Ptr]
         elina_texpr0_free_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -657,6 +697,8 @@ def elina_texpr0_from_linexpr0(linexpr):
         elina_texpr0_from_linexpr0_c.restype = ElinaTexpr0Ptr
         elina_texpr0_from_linexpr0_c.argtypes = [ElinaLinexpr0Ptr]
         texpr = elina_texpr0_from_linexpr0_c(linexpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_from_linexpr0" from "libelinaux.so"')
         print('Make sure you are passing ElinaLinexpr0Ptr to the function')
@@ -692,6 +734,8 @@ def elina_texpr0_fprint(stream, texpr, name_of_dim):
         elina_texpr0_fprint_c.restype = None
         elina_texpr0_fprint_c.argtypes = [c_void_p, ElinaTexpr0Ptr, POINTER(c_char_p)]
         elina_texpr0_fprint_c(stream, texpr, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaTexpr0Ptr, POINTER(c_char_p) to the function')
@@ -719,6 +763,8 @@ def elina_texpr0_print(texpr, name_of_dim):
         elina_texpr0_print_c.restype = None
         elina_texpr0_print_c.argtypes = [ElinaTexpr0Ptr, POINTER(c_char_p)]
         elina_texpr0_print_c(texpr, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_print" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, POINTER(c_char_p) to the function')
@@ -750,6 +796,8 @@ def elina_texpr0_depth(texpr):
         elina_texpr0_depth_c.restype = c_size_t
         elina_texpr0_depth_c.argtypes = [ElinaTexpr0Ptr]
         depth = elina_texpr0_depth_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_depth" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -779,6 +827,8 @@ def elina_texpr0_size(texpr):
         elina_texpr0_size_c.restype = c_size_t
         elina_texpr0_size_c.argtypes = [ElinaTexpr0Ptr]
         size = elina_texpr0_size_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_size" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -809,6 +859,8 @@ def elina_texpr0_max_dim(texpr):
         elina_texpr0_max_dim_c.restype = ElinaDim
         elina_texpr0_max_dim_c.argtypes = [ElinaTexpr0Ptr]
         max_dim = elina_texpr0_max_dim_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_max_dim" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -840,6 +892,8 @@ def elina_texpr0_has_dim(texpr, dim):
         elina_texpr0_has_dim_c.restype = c_bool
         elina_texpr0_has_dim_c.argtypes = [ElinaTexpr0Ptr, ElinaDim]
         result = elina_texpr0_has_dim_c(texpr, dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_has_dim" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -869,6 +923,8 @@ def elina_texpr0_dimlist(texpr):
         elina_texpr0_dimlist_c.restype = ElinaDimPtr
         elina_texpr0_dimlist_c.argtypes = [ElinaTexpr0Ptr]
         dim_array = elina_texpr0_dimlist_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_dimlist" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -898,6 +954,8 @@ def elina_texpr0_is_interval_cst(texpr):
         elina_texpr0_is_interval_cst_c.restype = c_bool
         elina_texpr0_is_interval_cst_c.argtypes = [ElinaTexpr0Ptr]
         result = elina_texpr0_is_interval_cst_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_is_interval_cst" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -927,6 +985,8 @@ def elina_texpr0_is_interval_linear(texpr):
         elina_texpr0_is_interval_linear_c.restype = c_bool
         elina_texpr0_is_interval_linear_c.argtypes = [ElinaTexpr0Ptr]
         result = elina_texpr0_is_interval_linear_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_is_interval_linear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -956,6 +1016,8 @@ def elina_texpr0_is_interval_polynomial(texpr):
         elina_texpr0_is_interval_polynomial_c.restype = c_bool
         elina_texpr0_is_interval_polynomial_c.argtypes = [ElinaTexpr0Ptr]
         result = elina_texpr0_is_interval_polynomial_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_is_interval_polynomial" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -985,6 +1047,8 @@ def elina_texpr0_is_interval_polyfrac(texpr):
         elina_texpr0_is_interval_polyfrac_c.restype = c_bool
         elina_texpr0_is_interval_polyfrac_c.argtypes = [ElinaTexpr0Ptr]
         result = elina_texpr0_is_interval_polyfrac_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_is_interval_polyfrac" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -1014,6 +1078,8 @@ def elina_texpr0_is_scalar(texpr):
         elina_texpr0_is_scalar_c.restype = c_bool
         elina_texpr0_is_scalar_c.argtypes = [ElinaTexpr0Ptr]
         result = elina_texpr0_is_scalar_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_is_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -1046,6 +1112,8 @@ def elina_texpr0_array_is_interval_linear(texpr_array, size):
         elina_texpr0_array_is_interval_linear_c.restype = c_bool
         elina_texpr0_array_is_interval_linear_c.argtypes = [ElinaTexpr0Array, c_size_t]
         result = elina_texpr0_array_is_interval_linear_c(texpr_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_array_is_interval_linear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Array, c_size_t to the function')
@@ -1077,6 +1145,8 @@ def elina_texpr0_array_is_interval_polynomial(texpr_array, size):
         elina_texpr0_array_is_interval_polynomial_c.restype = c_bool
         elina_texpr0_array_is_interval_polynomial_c.argtypes = [ElinaTexpr0Array, c_size_t]
         result = elina_texpr0_array_is_interval_polynomial_c(texpr_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_array_is_interval_polynomial" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Array, c_size_t to the function')
@@ -1108,6 +1178,8 @@ def elina_texpr0_array_is_interval_polyfrac(texpr_array, size):
         elina_texpr0_array_is_interval_polyfrac_c.restype = c_bool
         elina_texpr0_array_is_interval_polyfrac_c.argtypes = [ElinaTexpr0Array, c_size_t]
         result = elina_texpr0_array_is_interval_polyfrac_c(texpr_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_array_is_interval_polyfrac" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Array, c_size_t to the function')
@@ -1139,6 +1211,8 @@ def elina_texpr0_array_is_scalar(texpr_array, size):
         elina_texpr0_array_is_interval_polyfrac_c.restype = c_bool
         elina_texpr0_array_is_interval_polyfrac_c.argtypes = [ElinaTexpr0Array, c_size_t]
         result = elina_texpr0_array_is_interval_polyfrac_c(texpr_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_array_is_interval_polyfrac" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Array, c_size_t to the function')
@@ -1176,6 +1250,8 @@ def elina_texpr0_substitute(texpr2, dim, texpr3):
         elina_texpr0_substitute_c.restype = ElinaTexpr0Ptr
         elina_texpr0_substitute_c.argtypes = [ElinaTexpr0Ptr, ElinaDim, ElinaTexpr0Ptr]
         texpr1 = elina_texpr0_substitute_c(texpr2, dim, texpr3)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_substitute" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDim, ElinaTexpr0Ptr to the function')
@@ -1207,6 +1283,8 @@ def elina_texpr0_substitute_with(texpr1, dim, texpr2):
         elina_texpr0_substitute_with_c.restype = None
         elina_texpr0_substitute_with_c.argtypes = [ElinaTexpr0Ptr, ElinaDim, ElinaTexpr0Ptr]
         elina_texpr0_substitute_with_c(texpr1, dim, texpr2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_substitute_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDim, ElinaTexpr0Ptr to the function')
@@ -1240,6 +1318,8 @@ def elina_texpr0_add_dimensions(texpr2, dimchange):
         elina_texpr0_add_dimensions_c.restype = ElinaTexpr0Ptr
         elina_texpr0_add_dimensions_c.argtypes = [ElinaTexpr0Ptr, ElinaDimchangePtr]
         texpr1 = elina_texpr0_add_dimensions_c(texpr2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_add_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimchangePtr to the function')
@@ -1271,6 +1351,8 @@ def elina_texpr0_remove_dimensions(texpr2, dimchange):
         elina_texpr0_remove_dimensions_c.restype = ElinaTexpr0Ptr
         elina_texpr0_remove_dimensions_c.argtypes = [ElinaTexpr0Ptr, ElinaDimchangePtr]
         texpr1 = elina_texpr0_remove_dimensions_c(texpr2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_remove_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimchangePtr to the function')
@@ -1302,6 +1384,8 @@ def elina_texpr0_permute_dimensions(texpr2, dimperm):
         elina_texpr0_permute_dimensions_c.restype = ElinaTexpr0Ptr
         elina_texpr0_permute_dimensions_c.argtypes = [ElinaTexpr0Ptr, ElinaDimpermPtr]
         texpr1 = elina_texpr0_permute_dimensions_c(texpr2, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_permute_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimpermPtr to the function')
@@ -1331,6 +1415,8 @@ def elina_texpr0_add_dimensions_with(texpr, dimchange):
         elina_texpr0_add_dimensions_with_c.restype = None
         elina_texpr0_add_dimensions_with_c.argtypes = [ElinaTexpr0Ptr, ElinaDimchangePtr]
         elina_texpr0_add_dimensions_with_c(texpr, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_add_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimchangePtr to the function')
@@ -1358,6 +1444,8 @@ def elina_texpr0_remove_dimensions_with(texpr, dimchange):
         elina_texpr0_remove_dimensions_with_c.restype = None
         elina_texpr0_remove_dimensions_with_c.argtypes = [ElinaTexpr0Ptr, ElinaDimchangePtr]
         elina_texpr0_remove_dimensions_with_c(texpr, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_remove_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimchangePtr to the function')
@@ -1385,6 +1473,8 @@ def elina_texpr0_permute_dimensions_with(texpr, dimperm):
         elina_texpr0_permute_dimensions_with_c.restype = None
         elina_texpr0_permute_dimensions_with_c.argtypes = [ElinaTexpr0Ptr, ElinaDimpermPtr]
         elina_texpr0_permute_dimensions_with_c(texpr, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_permute_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaDimpermPtr to the function')
@@ -1416,6 +1506,8 @@ def elina_texpr0_hash(texpr):
         elina_texpr0_hash_c.restype = c_long
         elina_texpr0_hash_c.argtypes = [ElinaTexpr0Ptr, ElinaDimpermPtr]
         result = elina_texpr0_hash_c(texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_hash" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr to the function')
@@ -1448,6 +1540,8 @@ def elina_texpr0_equal(texpr1, texpr2):
         elina_texpr0_equal_c.restype = c_bool
         elina_texpr0_equal_c.argtypes = [ElinaTexpr0Ptr, ElinaTexpr0Ptr]
         result = elina_texpr0_equal_c(texpr1, texpr2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_texpr0_equal" from "libelinaux.so"')
         print('Make sure you are passing ElinaTexpr0Ptr, ElinaTexpr0Ptr to the function')

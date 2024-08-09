@@ -47,6 +47,8 @@ def elina_manager_clear_exclog(man):
         elina_manager_clear_exclog_c.restype = None
         elina_manager_clear_exclog_c.argtypes = [ElinaManagerPtr]
         elina_manager_clear_exclog_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_clear_exclog" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -72,6 +74,8 @@ def elina_manager_free(man):
         elina_manager_free_c.restype = None
         elina_manager_free_c.argtypes = [ElinaManagerPtr]
         elina_manager_free_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -99,6 +103,8 @@ def elina_manager_get_library(man):
         elina_manager_get_library_c.restype = c_char_p
         elina_manager_get_library_c.argtypes = [ElinaManagerPtr]
         library = elina_manager_get_library_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_library" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -127,6 +133,8 @@ def elina_manager_get_version(man):
         elina_manager_get_version_c.restype = c_char_p
         elina_manager_get_version_c.argtypes = [ElinaManagerPtr]
         version = elina_manager_get_version_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_version" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -158,6 +166,8 @@ def elina_manager_get_funopt(man, funid):
         elina_manager_get_funopt_c.restype = ElinaFunOpt
         elina_manager_get_funopt_c.argtypes = [ElinaManagerPtr, c_uint]
         fun_opt = elina_manager_get_funopt_c(man, funid)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_funopt" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_uint to the function')
@@ -189,6 +199,8 @@ def elina_manager_get_abort_if_exception(man, exn):
         elina_manager_get_abort_if_exception_c.restype = c_bool
         elina_manager_get_abort_if_exception_c.argtypes = [ElinaManagerPtr, c_uint]
         abort_if_exception = elina_manager_get_abort_if_exception_c(man, exn)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_abort_if_exception" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_uint to the function')
@@ -218,6 +230,8 @@ def elina_manager_get_exception(man):
         elina_manager_get_exception_c.restype = c_uint
         elina_manager_get_exception_c.argtypes = [ElinaManagerPtr]
         exn = elina_manager_get_exception_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_exception" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -247,6 +261,8 @@ def elina_manager_get_exclog(man):
         elina_manager_get_exclog_c.restype = ElinaExcLogPtr
         elina_manager_get_exclog_c.argtypes = [ElinaManagerPtr]
         exc_log = elina_manager_get_exclog_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_exclog" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -276,6 +292,8 @@ def elina_manager_get_flag_exact(man):
         elina_manager_get_flag_exact_c.restype = c_bool
         elina_manager_get_flag_exact_c.argtypes = [ElinaManagerPtr]
         flag_exact = elina_manager_get_flag_exact_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_flag_exact" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -305,6 +323,8 @@ def elina_manager_get_flag_best(man):
         elina_manager_get_flag_best_c.restype = c_bool
         elina_manager_get_flag_best_c.argtypes = [ElinaManagerPtr]
         flag_best = elina_manager_get_flag_best_c(man)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_flag_best" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -332,6 +352,8 @@ def elina_funopt_init(fopt):
         elina_manager_get_flag_best_c.restype = None
         elina_manager_get_flag_best_c.argtypes = [ElinaFunOptPtr]
         elina_manager_get_flag_best_c(fopt)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_get_flag_best" from "libelinaux.so"')
         print('Make sure you are passing ElinaFunOptPtr to the function')
@@ -361,6 +383,8 @@ def elina_manager_set_funopt(man, funid, fopt):
         elina_manager_set_funopt_c.restype = None
         elina_manager_set_funopt_c.argtypes = [ElinaManagerPtr, c_uint, ElinaFunOptPtr]
         elina_manager_set_funopt_c(man, funid, fopt)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_set_funopt" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_uint, ElinaFunOptPtr to the function')
@@ -390,6 +414,8 @@ def elina_manager_set_abort_if_exception(man, exn, flag):
         elina_manager_set_abort_if_exception_c.restype = None
         elina_manager_set_abort_if_exception_c.argtypes = [ElinaManagerPtr, c_uint, c_bool]
         elina_manager_set_abort_if_exception_c(man, exn, flag)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_set_abort_if_exception" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_uint, c_bool to the function')
@@ -411,6 +437,8 @@ def elina_fpy_init():
         elina_fpy_init_c = elina_auxiliary_api.elina_fpy_init
         elina_fpy_init_c.restype = c_bool
         result = elina_fpy_init_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_fpy_init" from "libelinaux.so"')
 
@@ -449,6 +477,8 @@ def elina_manager_alloc(library, version, internal, internal_free):
         elina_manager_alloc_c.restype = ElinaManagerPtr
         elina_manager_alloc_c.argtypes = [c_char_p, c_char_p, c_void_p, CFUNCTYPE(None, c_void_p)]
         man = elina_manager_alloc_c(library, version, internal, internal_free)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_alloc" from "libelinaux.so"')
         print('Make sure you are passing c_char_p, c_char_p, c_void_p, CFUNCTYPE(None, c_void_p) to the function')
@@ -478,6 +508,8 @@ def elina_manager_copy(man2):
         elina_manager_copy_c.restype = ElinaManagerPtr
         elina_manager_copy_c.argtypes = [ElinaManagerPtr]
         man1 = elina_manager_copy_c(man2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_copy" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr to the function')
@@ -511,6 +543,8 @@ def elina_manager_raise_exception(man, exn, funid, msg):
         elina_manager_raise_exception_c.restype = None
         elina_manager_raise_exception_c.argtypes = [ElinaManagerPtr, c_uint, c_uint, c_char_p]
         elina_manager_raise_exception_c(man, exn, funid, msg)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_manager_raise_exception" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_uint, c_uint, c_char_p to the function')
@@ -543,6 +577,8 @@ def elina_exc_cons(exn, funid, msg, tail):
         elina_exc_cons_c.restype = None
         elina_exc_cons_c.argtypes = [c_uint, c_uint, c_char_p, ElinaExcLogPtr]
         elina_exc_cons_c(exn, funid, msg, tail)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_exc_cons" from "libelinaux.so"')
         print('Make sure you are passing c_uint, c_uint, c_char_p, ElinaExcLogPtr to the function')
@@ -568,6 +604,8 @@ def elina_exclog_free(head):
         elina_exclog_free_c.restype = None
         elina_exclog_free_c.argtypes = [ElinaExcLogPtr]
         elina_exclog_free_c(head)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_exclog_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaExcLogPtr to the function')

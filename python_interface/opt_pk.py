@@ -48,6 +48,8 @@ def opt_pk_manager_alloc(strict):
         opt_pk_manager_alloc_c.restype = ElinaManagerPtr
         opt_pk_manager_alloc_c.argtypes = [c_bool]
         man = opt_pk_manager_alloc_c(strict)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "opt_pk_manager_alloc" from "liboptpoly.so"')
 

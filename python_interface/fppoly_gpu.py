@@ -54,6 +54,8 @@ def fppoly_manager_alloc(gpu_number = 0, backstep_depth = 2):
         fppoly_manager_alloc_c.restype = ElinaManagerPtr
         fppoly_manager_alloc_c.argtypes = [c_size_t, c_size_t]
         man = fppoly_manager_alloc_c(gpu_number, backstep_depth)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "fppoly_manager_alloc" from "libfppoly_gpu.so".')
 
@@ -92,6 +94,8 @@ def fppoly_from_network_input(man, intdim, realdim, inf_array, sup_array):
         fppoly_from_network_input_c.restype = ElinaAbstract0Ptr
         fppoly_from_network_input_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ndpointer(c_float_type), ndpointer(c_float_type)]
         res = fppoly_from_network_input_c(man, intdim, realdim, inf_array, sup_array)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "fppoly_from_network_input" from "libfppoly_gpu.so".')
         print(inst)
@@ -133,6 +137,8 @@ def fppoly_set_network_input_box(man, element, intdim, realdim, inf_array, sup_a
         fppoly_set_network_input_box_c.restype = None
         fppoly_set_network_input_box_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t, ndpointer(c_float_type), ndpointer(c_float_type)]
         res = fppoly_set_network_input_box_c(man, element, intdim, realdim, inf_array, sup_array)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "fppoly_set_network_input_box" from "libfppoly_gpu.so".')
         print(inst)
@@ -186,6 +192,8 @@ def fppoly_from_network_input_poly(man, intdim, realdim, inf_array, sup_array, l
         fppoly_from_network_input_poly_c.restype = ElinaAbstract0Ptr
         fppoly_from_network_input_poly_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_size_t), ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_size_t), c_size_t]
         res = fppoly_from_network_input_poly_c(man, intdim, realdim, inf_array, sup_array, lexpr_weights, lexpr_cst, lexpr_dim, uexpr_weights, uexpr_cst, uexpr_dim, expr_size)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "fppoly_from_network_input_poly" from "libfppoly_gpu.so".')
         print(inst)
@@ -227,6 +235,8 @@ def ffn_handle_first_relu_layer(man, element, weights, bias, size, num_pixels, p
         ffn_handle_first_relu_layer_c.restype = None
         ffn_handle_first_relu_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, _doublepp, ndpointer(c_float_type), c_size_t, c_size_t, POINTER(c_size_t)]
         ffn_handle_first_relu_layer_c(man, element, weights, bias, size, num_pixels, predecessors)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_handle_first_relu_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -613,6 +623,8 @@ def ffn_handle_intermediate_affine_layer(man, element, weights, bias, num_out_ne
         ffn_handle_intermediate_affine_layer_c.restype = None
         ffn_handle_intermediate_affine_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, _doublepp, ndpointer(c_float_type), c_size_t, c_size_t, POINTER(c_size_t), c_bool]
         ffn_handle_intermediate_affine_layer_c(man, element, weights, bias, num_out_neurons, num_in_neurons, predecessors, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_handle_intermediate_affine_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -690,6 +702,8 @@ def ffn_handle_intermediate_relu_layer(man, element, weights, bias, num_out_neur
         ffn_handle_intermediate_relu_layer_c.restype = None
         ffn_handle_intermediate_relu_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, _doublepp, ndpointer(c_float_type), c_size_t, c_size_t, POINTER(c_size_t), c_bool]
         ffn_handle_intermediate_relu_layer_c(man, element, weights, bias, num_out_neurons, num_in_neurons, predecessors, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_handle_intermediate_relu_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1111,6 +1125,8 @@ def ffn_handle_last_relu_layer(man, element, weights, bias, num_out_neurons, num
         ffn_handle_last_relu_layer_c.restype = None
         ffn_handle_last_relu_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, _doublepp, ndpointer(c_float_type), c_size_t, c_size_t, POINTER(c_size_t), c_bool, c_bool]
         ffn_handle_last_relu_layer_c(man, element, weights, bias, num_out_neurons, num_in_neurons, predecessors, has_relu, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "ffn_handle_last_relu_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1479,6 +1495,8 @@ def is_greater(man, element, y, x, use_area_heuristic):
         is_greater_c.restype = c_bool
         is_greater_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim, ElinaDim, c_bool]
         res = is_greater_c(man, element, y, x, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "is_greater" from "libfppoly_gpu.so".')
         print(inst)
@@ -1527,6 +1545,8 @@ def conv_handle_first_layer(man, element, filter_weights, filter_bias, input_siz
         conv_handle_first_layer_c.restype = None
         conv_handle_first_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_size_t), POINTER(c_size_t), c_size_t, POINTER(c_size_t), POINTER(c_size_t), c_size_t, c_size_t, c_bool, POINTER(c_size_t)]
         conv_handle_first_layer_c(man, element, filter_weights, filter_bias, input_size, filter_size, num_filters, strides, output_size, pad_top, pad_left, has_bias, predecessors)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "conv_handle_first_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1581,6 +1601,8 @@ def conv_handle_intermediate_relu_layer(man, element, filter_weights, filter_bia
         conv_handle_intermediate_relu_layer_c.restype = None
         conv_handle_intermediate_relu_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_size_t), POINTER(c_size_t), c_size_t, POINTER(c_size_t), POINTER(c_size_t), c_size_t, c_size_t, c_bool, POINTER(c_size_t), c_bool, c_bool, ndpointer(c_float_type)]
         conv_handle_intermediate_relu_layer_c(man, element, filter_weights, filter_bias, input_size, filter_size, num_filters, strides, output_size, pad_top, pad_left, has_bias, predecessors, use_area_heuristic, retain_training_data, gradient)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "conv_handle_intermediate_relu_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1635,6 +1657,8 @@ def conv_handle_intermediate_affine_layer(man, element, filter_weights, filter_b
         conv_handle_intermediate_affine_layer_c.restype = None
         conv_handle_intermediate_affine_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ndpointer(c_float_type), ndpointer(c_float_type), ndpointer(c_size_t), POINTER(c_size_t), c_size_t, POINTER(c_size_t), POINTER(c_size_t), c_size_t, c_size_t, c_bool, POINTER(c_size_t), c_bool, c_bool, ndpointer(c_float_type)]
         conv_handle_intermediate_affine_layer_c(man, element, filter_weights, filter_bias, input_size, filter_size, num_filters, strides, output_size, pad_top, pad_left, has_bias, predecessors, use_area_heuristic, retain_training_data, gradient)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "conv_handle_intermediate_affine_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1686,6 +1710,8 @@ def handle_pool_layer(man, element, pool_size, input_size, strides, dimensionali
         handle_pool_layer_c.restype = c_size_t
         handle_pool_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, POINTER(c_size_t), POINTER(c_size_t), POINTER(c_size_t), c_size_t, c_size_t, c_size_t, POINTER(c_size_t), POINTER(c_size_t), c_bool]
         res = handle_pool_layer_c(man, element, pool_size, input_size, strides, dimensionality, pad_left, pad_top, pad_bottom, pad_right, output_size, predecessors, is_maxpool)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "handle_pool_layer" from "libfppoly_gpu.so"')
         print(inst)
@@ -1720,6 +1746,8 @@ def handle_residual_relu_layer(man, element, num_neurons, predecessors, use_area
         handle_residual_relu_layer_c.restype = None
         handle_residual_relu_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, POINTER(c_size_t), c_bool]
         handle_residual_relu_layer_c(man, element, num_neurons, predecessors, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "handle_residual_relu_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1754,6 +1782,8 @@ def handle_residual_affine_layer(man, element, num_neurons, predecessors, use_ar
         handle_residual_affine_layer_c.restype = None
         handle_residual_affine_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, POINTER(c_size_t), c_bool]
         handle_residual_affine_layer_c(man, element, num_neurons, predecessors, use_area_heuristic)
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "handle_residual_affine_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -1791,6 +1821,8 @@ def box_for_neuron(man, element, layerno, neuron_no):
         box_for_neuron_c.restype = ElinaIntervalPtr
         box_for_neuron_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t]
         interval = box_for_neuron_c(man, element, layerno, neuron_no)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "box_for_neuron" from "fppoly_gpu.so".')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t to the function.')
@@ -1826,6 +1858,8 @@ def box_for_layer(man, element, layerno):
         box_for_layer_c.restype = ElinaIntervalArray
         box_for_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t]
         interval_array = box_for_layer_c(man, element, layerno)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "box_for_layer" from "fppoly_gpu.so".')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t to the function.')
@@ -1861,6 +1895,8 @@ def get_num_neurons_in_layer(man, element, layerno):
         get_num_neurons_in_layer_c.restype = c_size_t
         get_num_neurons_in_layer_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t]
         res = get_num_neurons_in_layer_c(man, element, layerno)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "get_num_neurons_in_layer" from "fppoly_gpu.so".')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t to the function.')
@@ -1899,6 +1935,8 @@ def update_bounds_for_neuron(man, element, layerno, neuron_no, lb, ub):
         update_bounds_for_neuron_c.restype = None
         update_bounds_for_neuron_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t, c_float_type, c_float_type]
         update_bounds_for_neuron_c(man, element, layerno, neuron_no, lb, ub)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "update_bounds_for_neuron" from "fppoly_gpu.so".')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, c_size_t, c_size_t, c_float_type, c_float_type to the function.')
@@ -2102,6 +2140,8 @@ def clean_training_data():
         clean_training_data_c.restype = None
         clean_training_data_c.argtypes = None
         res = clean_training_data_c()
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "clean_training_data" from "libfppoly_gpu.so".')
         print(inst)
@@ -2131,6 +2171,8 @@ def get_num_neurons_training_layer():
         get_num_neurons_training_layer_c.restype = c_int
         get_num_neurons_training_layer_c.argtypes = None
         res = get_num_neurons_training_layer_c()
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "get_num_neurons_training_layer" from "libfppoly_gpu.so".')
         print(inst)
@@ -2160,6 +2202,8 @@ def get_adv():
         get_adv_c.restype = POINTER(c_float_type)
         get_adv_c.argtypes = None
         res = get_adv_c()
+    except TimeoutError:
+        raise
     except Exception as inst:
         print('Problem with loading/calling "get_adv" from "libfppoly_gpu.so"')
         print(inst)

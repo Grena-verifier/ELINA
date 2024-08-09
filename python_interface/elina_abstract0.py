@@ -54,6 +54,8 @@ def elina_abstract0_copy(man, a1):
         elina_abstract0_copy_c.restype = ElinaAbstract0Ptr
         elina_abstract0_copy_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         a0 = elina_abstract0_copy_c(man, a1)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_copy" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -83,6 +85,8 @@ def elina_abstract0_free(man, a):
         elina_abstract0_free_c.restype = None
         elina_abstract0_free_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         elina_abstract0_free_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_free" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -112,6 +116,8 @@ def elina_abstract0_size(man, a):
         elina_abstract0_size_c.restype = c_size_t
         elina_abstract0_size_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         size = elina_abstract0_size_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_size" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -146,6 +152,8 @@ def elina_abstract0_minimize(man, a):
         elina_abstract0_minimize_c.restype = None
         elina_abstract0_minimize_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         elina_abstract0_minimize_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_minimize" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -173,6 +181,8 @@ def elina_abstract0_canonicalize(man, a):
         elina_abstract0_canonicalize_c.restype = None
         elina_abstract0_canonicalize_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         elina_abstract0_canonicalize_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_canonicalize" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -203,6 +213,8 @@ def elina_abstract0_hash(man, a):
         elina_abstract0_hash_c.restype = c_int
         elina_abstract0_hash_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         result = elina_abstract0_hash_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_hash" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -235,6 +247,8 @@ def elina_abstract0_approximate(man, a, algorithm):
         elina_abstract0_approximate_c.restype = None
         elina_abstract0_approximate_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, c_int]
         elina_abstract0_approximate_c(man, a, algorithm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_approximate" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, c_int to the function')
@@ -270,6 +284,8 @@ def elina_abstract0_fprint(stream, man, a, name_of_dim):
         elina_abstract0_fprint_c.restype = None
         elina_abstract0_fprint_c.argtypes = [c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr, POINTER(c_char_p)]
         elina_abstract0_fprint_c(stream, man, a, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr, '
@@ -306,6 +322,8 @@ def elina_abstract0_fprintdiff(stream, man, a1, a2, name_of_dim):
         elina_abstract0_fprintdiff_c.argtypes = \
             [c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr, POINTER(c_char_p)]
         elina_abstract0_fprintdiff_c(stream, man, a1, a2, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_fprintdiff" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr, '
@@ -337,6 +355,8 @@ def elina_abstract0_fdump(stream, man, a):
         elina_abstract0_fdump_c.restype = None
         elina_abstract0_fdump_c.argtypes = [c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr]
         elina_abstract0_fdump_c(stream, man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_fdump" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -371,6 +391,8 @@ def elina_abstract0_serialize_raw(man, a):
         elina_abstract0_serialize_raw_c.restype = ElinaMembuf
         elina_abstract0_serialize_raw_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         membuf = elina_abstract0_serialize_raw_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_serialize_raw" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -404,6 +426,8 @@ def elina_abstract0_deserialize_raw(man, ptr, size):
         elina_abstract0_deserialize_raw_c.restype = ElinaAbstract0Ptr
         elina_abstract0_deserialize_raw_c.argtypes = [ElinaManagerPtr, c_void_p, POINTER(c_size_t)]
         a = elina_abstract0_deserialize_raw_c(man, ptr, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_deserialize_raw" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -445,6 +469,8 @@ def elina_abstract0_bottom(man, intdim, realdim):
         elina_abstract0_bottom_c.restype = ElinaAbstract0Ptr
         elina_abstract0_bottom_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t]
         a = elina_abstract0_bottom_c(man, intdim, realdim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_bottom" from "libelinaux.so"')
         print('Make sure you are passing EElinaManagerPtr, c_size_t, c_size_t to the function')
@@ -478,6 +504,8 @@ def elina_abstract0_top(man, intdim, realdim):
         elina_abstract0_top_c.restype = ElinaAbstract0Ptr
         elina_abstract0_top_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t]
         a = elina_abstract0_top_c(man, intdim, realdim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_size_t, c_size_t to the function')
@@ -513,6 +541,8 @@ def elina_abstract0_of_box(man, intdim, realdim, tinterval):
         elina_abstract0_of_box_c.restype = ElinaAbstract0Ptr
         elina_abstract0_of_box_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ElinaIntervalArray]
         a = elina_abstract0_of_box_c(man, intdim, realdim, tinterval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_of_box" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_size_t, c_size_t, ElinaIntervalArray to the function')
@@ -548,6 +578,8 @@ def elina_abstract0_dimension(man, a):
         elina_abstract0_dimension_c.restype = ElinaDimension
         elina_abstract0_dimension_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         dim = elina_abstract0_dimension_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_dimension" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -586,6 +618,8 @@ def elina_abstract0_is_bottom(man, a):
         elina_abstract0_is_bottom_c.restype = c_bool
         elina_abstract0_is_bottom_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         result = elina_abstract0_is_bottom_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_is_bottom" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -620,6 +654,8 @@ def elina_abstract0_is_top(man, a):
         elina_abstract0_is_top_c.restype = c_bool
         elina_abstract0_is_top_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         result = elina_abstract0_is_top_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_is_top" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -656,6 +692,8 @@ def elina_abstract0_is_leq(man, a1, a2):
         elina_abstract0_is_leq_c.restype = c_bool
         elina_abstract0_is_leq_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr]
         result = elina_abstract0_is_leq_c(man, a1, a2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_is_leq" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')
@@ -692,6 +730,8 @@ def elina_abstract0_is_eq(man, a1, a2):
         elina_abstract0_is_eq_c.restype = c_bool
         elina_abstract0_is_eq_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr]
         result = elina_abstract0_is_eq_c(man, a1, a2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_is_eq" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')
@@ -728,6 +768,8 @@ def elina_abstract0_sat_lincons(man, a, lincons):
         elina_abstract0_sat_lincons_c.restype = c_bool
         elina_abstract0_sat_lincons_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaLincons0Ptr]
         result = elina_abstract0_sat_lincons_c(man, a, lincons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_sat_lincons" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaLincons0Ptr to the function')
@@ -764,6 +806,8 @@ def elina_abstract0_sat_tcons(man, a, tcons):
         elina_abstract0_sat_tcons_c.restype = c_bool
         elina_abstract0_sat_tcons_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaTcons0Ptr]
         result = elina_abstract0_sat_tcons_c(man, a, tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_sat_tcons" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaTcons0Ptr to the function')
@@ -802,6 +846,8 @@ def elina_abstract0_sat_interval(man, a, dim, interval):
         elina_abstract0_sat_interval_c.restype = c_bool
         elina_abstract0_sat_interval_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim, ElinaIntervalPtr]
         result = elina_abstract0_sat_interval_c(man, a, dim, interval)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_sat_interval" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim, '
@@ -839,6 +885,8 @@ def elina_abstract0_is_dimension_unconstrained(man, a, dim):
         elina_abstract0_is_dimension_unconstrained_c.restype = c_bool
         elina_abstract0_is_dimension_unconstrained_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim]
         result = elina_abstract0_is_dimension_unconstrained_c(man, a, dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_is_dimension_unconstrained" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim to the function')
@@ -876,6 +924,8 @@ def elina_abstract0_bound_linexpr(man, a, linexpr):
         elina_abstract0_bound_linexpr_c.restype = ElinaIntervalPtr
         elina_abstract0_bound_linexpr_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaLinexpr0Ptr]
         interval = elina_abstract0_bound_linexpr_c(man, a, linexpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_bound_linexpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaLinexpr0Ptr to the function')
@@ -909,6 +959,8 @@ def elina_abstract0_bound_texpr(man, a, texpr):
         elina_abstract0_bound_texpr_c.restype = ElinaIntervalPtr
         elina_abstract0_bound_texpr_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaTexpr0Ptr]
         interval = elina_abstract0_bound_texpr_c(man, a, texpr)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_bound_texpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaTexpr0Ptr to the function')
@@ -942,6 +994,8 @@ def elina_abstract0_bound_dimension(man, a, dim):
         elina_abstract0_bound_dimension_c.restype = ElinaIntervalPtr
         elina_abstract0_bound_dimension_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim]
         interval = elina_abstract0_bound_dimension_c(man, a, dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_bound_dimension" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaDim to the function')
@@ -974,6 +1028,8 @@ def elina_abstract0_to_lincons_array(man, a):
         elina_abstract0_to_lincons_array_c.restype = ElinaLincons0Array
         elina_abstract0_to_lincons_array_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         lincons_array = elina_abstract0_to_lincons_array_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_to_lincons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -1006,6 +1062,8 @@ def elina_abstract0_to_tcons_array(man, a):
         elina_abstract0_to_tcons_array_c.restype = ElinaTcons0Array
         elina_abstract0_to_tcons_array_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         tcons_array = elina_abstract0_to_tcons_array_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_to_tcons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -1039,6 +1097,8 @@ def elina_abstract0_to_box(man, a):
         elina_abstract0_to_box_c.restype = ElinaIntervalArray
         elina_abstract0_to_box_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr]
         interval_array = elina_abstract0_to_box_c(man, a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_to_box" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr to the function')
@@ -1082,6 +1142,8 @@ def elina_abstract0_meet(man, destructive, a1, a2):
         elina_abstract0_meet_c.restype = ElinaAbstract0Ptr
         elina_abstract0_meet_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaAbstract0Ptr]
         a0 = elina_abstract0_meet_c(man, destructive, a1, a2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_meet" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')
@@ -1117,6 +1179,8 @@ def elina_abstract0_join(man, destructive, a1, a2):
         elina_abstract0_join_c.restype = ElinaAbstract0Ptr
         elina_abstract0_join_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaAbstract0Ptr]
         a0 = elina_abstract0_join_c(man, destructive, a1, a2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_join" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')
@@ -1151,6 +1215,8 @@ def elina_abstract0_meet_array(man, tab, size):
         elina_abstract0_meet_array_c.restype = ElinaAbstract0Ptr
         elina_abstract0_meet_array_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Array, c_size_t]
         a = elina_abstract0_meet_array_c(man, tab, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_meet_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Array, c_size_t to the function')
@@ -1185,6 +1251,8 @@ def elina_abstract0_join_array(man, tab, size):
         elina_abstract0_join_array_c.restype = ElinaAbstract0Ptr
         elina_abstract0_join_array_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Array, c_size_t]
         a = elina_abstract0_join_array_c(man, tab, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_join_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Array, c_size_t to the function')
@@ -1221,6 +1289,8 @@ def elina_abstract0_meet_lincons_array(man, destructive, a1, lincons_array):
         elina_abstract0_meet_lincons_array_c.argtypes = [ElinaManagerPtr, c_bool,
                                                          ElinaAbstract0Ptr, ElinaLincons0ArrayPtr]
         a0 = elina_abstract0_meet_lincons_array_c(man, destructive, a1, lincons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_meet_lincons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, '
@@ -1258,6 +1328,8 @@ def elina_abstract0_meet_tcons_array(man, destructive, a1, tcons_array):
         elina_abstract0_meet_tcons_array_c.argtypes = [ElinaManagerPtr, c_bool,
                                                        ElinaAbstract0Ptr, ElinaTcons0ArrayPtr]
         a0 = elina_abstract0_meet_tcons_array_c(man, destructive, a1, tcons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_meet_tcons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, '
@@ -1307,6 +1379,8 @@ def elina_abstract0_assign_linexpr_array(man, destructive, org, tdim, linexpr_ar
                                                            ElinaDimPtr, ElinaLinexpr0Array, c_size_t,
                                                            ElinaAbstract0Ptr]
         a = elina_abstract0_assign_linexpr_array_c(man, destructive, org, tdim, linexpr_array, size, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_assign_linexpr_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, ElinaLinexpr0Array, '
@@ -1352,6 +1426,8 @@ def elina_abstract0_assign_texpr_array(man, destructive, org, tdim, texpr_array,
         elina_abstract0_assign_texpr_array_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr,
                                                          ElinaTexpr0Array, c_size_t, ElinaAbstract0Ptr]
         a = elina_abstract0_assign_texpr_array_c(man, destructive, org, tdim, texpr_array, size, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_assign_texpr_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, ElinaTexpr0Array, '
@@ -1396,6 +1472,8 @@ def elina_abstract0_substitute_linexpr_array(man, destructive, org, tdim, linexp
         elina_abstract0_substitute_linexpr_array_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr,
                                                                ElinaLinexpr0Array, c_size_t, ElinaAbstract0Ptr]
         a = elina_abstract0_substitute_linexpr_array_c(man, destructive, org, tdim, linexpr_array, size, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_substitute_linexpr_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, ElinaLinexpr0Array, '
@@ -1440,6 +1518,8 @@ def elina_abstract0_substitute_texpr_array(man, destructive, org, tdim, texpr_ar
         elina_abstract0_substitute_texpr_array_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr,
                                                              ElinaTexpr0Array, c_size_t, ElinaAbstract0Ptr]
         a = elina_abstract0_substitute_texpr_array_c(man, destructive, org, tdim, texpr_array, size, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_substitute_texpr_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, ElinaTexpr0Array, '
@@ -1481,6 +1561,8 @@ def elina_abstract0_forget_array(man, destructive, a1, tdim, size,project):
         elina_abstract0_forget_array_c.restype = ElinaAbstract0Ptr
         elina_abstract0_forget_array_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, c_size_t, c_bool]
         a0 = elina_abstract0_forget_array_c(man, destructive, a1, tdim, size, project)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_forget_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, c_size_t '
@@ -1524,6 +1606,8 @@ def elina_abstract0_add_dimensions(man, destructive, a1, dimchange, project):
         elina_abstract0_add_dimensions_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                      ElinaDimchangePtr, c_bool]
         a0 = elina_abstract0_add_dimensions_c(man, destructive, a1, dimchange, project)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_add_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,ElinaManagerPtr, '
@@ -1560,6 +1644,8 @@ def elina_abstract0_remove_dimensions(man, destructive, a1, dimchange):
         elina_abstract0_remove_dimensions_c.restype = ElinaAbstract0Ptr
         elina_abstract0_remove_dimensions_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimchangePtr]
         a0 = elina_abstract0_remove_dimensions_c(man, destructive, a1, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_remove_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,ElinaManagerPtr, '
@@ -1596,6 +1682,8 @@ def elina_abstract0_permute_dimensions(man, destructive, a1, dimperm):
         elina_abstract0_permute_dimensions_c.restype = ElinaAbstract0Ptr
         elina_abstract0_permute_dimensions_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimpermPtr]
         a0 = elina_abstract0_permute_dimensions_c(man, destructive, a1, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_permute_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,ElinaManagerPtr, '
@@ -1643,6 +1731,8 @@ def elina_abstract0_expand(man, destructive, a1, dim, n):
         elina_abstract0_expand_c.restype = ElinaAbstract0Ptr
         elina_abstract0_expand_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, c_size_t]
         a0 = elina_abstract0_expand_c(man, destructive, a1, dim, n)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_expand" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, '
@@ -1682,6 +1772,8 @@ def elina_abstract0_fold(man, destructive, a1, tdim, n):
         elina_abstract0_fold_c.restype = ElinaAbstract0Ptr
         elina_abstract0_fold_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, c_size_t]
         a0 = elina_abstract0_fold_c(man, destructive, a1, tdim, n)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_fold" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimPtr, '
@@ -1721,6 +1813,8 @@ def elina_abstract0_widening(man, a1, a2):
         elina_abstract0_widening_c.restype = ElinaAbstract0Ptr
         elina_abstract0_widening_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr]
         a0 = elina_abstract0_widening_c(man, a1, a2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_widening" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')
@@ -1758,6 +1852,8 @@ def elina_abstract0_closure(man, destructive, a1):
         elina_abstract0_closure_c.restype = ElinaAbstract0Ptr
         elina_abstract0_closure_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr]
         a0 = elina_abstract0_closure_c(man, destructive, a1)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_closure" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr to the function')
@@ -1792,6 +1888,8 @@ def elina_abstract0_manager(a):
         elina_abstract0_manager_c.restype = ElinaManagerPtr
         elina_abstract0_manager_c.argtypes = [ElinaAbstract0Ptr]
         man = elina_abstract0_manager_c(a)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_manager" from "libelinaux.so"')
         print('Make sure you are passing ElinaAbstract0Ptr to the function')
@@ -1827,6 +1925,8 @@ def elina_abstract0_of_lincons_array(man, intdim, realdim, lincons_array):
         elina_abstract0_of_lincons_array_c.restype = ElinaAbstract0Ptr
         elina_abstract0_of_lincons_array_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ElinaLincons0ArrayPtr]
         a = elina_abstract0_of_lincons_array_c(man, intdim, realdim, lincons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_of_lincons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_size_t, c_size_t, ElinaLincons0ArrayPtr to the function')
@@ -1862,6 +1962,8 @@ def elina_abstract0_of_tcons_array(man, intdim, realdim, tcons_array):
         elina_abstract0_of_lincons_array_c.restype = ElinaAbstract0Ptr
         elina_abstract0_of_lincons_array_c.argtypes = [ElinaManagerPtr, c_size_t, c_size_t, ElinaTcons0ArrayPtr]
         a = elina_abstract0_of_lincons_array_c(man, intdim, realdim, tcons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_of_lincons_array" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_size_t, c_size_t, ElinaTcons0ArrayPtr to the function')
@@ -1904,6 +2006,8 @@ def elina_abstract0_assign_linexpr(man, destructive, org, dim, linexpr, dest):
         elina_abstract0_assign_linexpr_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                      ElinaDim, ElinaLinexpr0Ptr, ElinaAbstract0Ptr]
         a = elina_abstract0_assign_linexpr_c(man, destructive, org, dim, linexpr, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_assign_linexpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, '
@@ -1947,6 +2051,8 @@ def elina_abstract0_assign_texpr(man, destructive, org, dim, texpr, dest):
         elina_abstract0_assign_texpr_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                    ElinaDim, ElinaTexpr0Ptr, ElinaAbstract0Ptr]
         a = elina_abstract0_assign_texpr_c(man, destructive, org, dim, texpr, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_assign_texpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, '
@@ -1990,6 +2096,8 @@ def elina_abstract0_substitute_linexpr(man, destructive, org, dim, linexpr, dest
         elina_abstract0_substitute_linexpr_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                          ElinaDim, ElinaLinexpr0Ptr, ElinaAbstract0Ptr]
         a = elina_abstract0_substitute_linexpr_c(man, destructive, org, dim, linexpr, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_substitute_linexpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, '
@@ -2033,6 +2141,8 @@ def elina_abstract0_substitute_texpr(man, destructive, org, dim, texpr, dest):
         elina_abstract0_substitute_texpr_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                        ElinaDim, ElinaTexpr0Ptr, ElinaAbstract0Ptr]
         a = elina_abstract0_substitute_texpr_c(man, destructive, org, dim, texpr, dest)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_substitute_texpr" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDim, '
@@ -2073,6 +2183,8 @@ def elina_abstract0_apply_dimchange2(man, destructive, a1, dimchange2, project):
         elina_abstract0_apply_dimchange2_c.argtypes = [ElinaManagerPtr, c_bool, ElinaAbstract0Ptr,
                                                        ElinaDimchange2Ptr, c_bool]
         a0 = elina_abstract0_apply_dimchange2_c(man, destructive, a1, dimchange2, project)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_apply_dimchange2" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, c_bool, ElinaAbstract0Ptr, ElinaDimchange2Ptr, '
@@ -2111,6 +2223,8 @@ def elina_abstract0_widening_threshold(man, a1, a2, lincons_array):
         elina_abstract0_widening_threshold_c.argtypes = [ElinaManagerPtr, ElinaAbstract0Ptr,
                                                          ElinaAbstract0Ptr, ElinaLincons0ArrayPtr]
         a0 = elina_abstract0_widening_threshold_c(man, a1, a2, lincons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_abstract0_widening_threshold" from "libelinaux.so"')
         print('Make sure you are passing ElinaManagerPtr, ElinaAbstract0Ptr, ElinaAbstract0Ptr to the function')

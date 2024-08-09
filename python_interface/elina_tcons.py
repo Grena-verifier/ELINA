@@ -58,6 +58,8 @@ def elina_tcons0_make(constyp, texpr, scalar):
         elina_tcons0_make_c.restype = ElinaTcons0
         elina_tcons0_make_c.argtypes = [c_uint, ElinaTexpr0Ptr, ElinaScalarPtr]
         tcons = elina_tcons0_make_c(constyp, texpr, scalar)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_make" from "libelinaux.so"')
         print('Make sure you are passing c_uint, ElinaTexpr0Ptr, ElinaScalarPtr to the function')
@@ -81,6 +83,8 @@ def elina_tcons0_make_unsat():
         elina_tcons0_make_unsat_c = elina_auxiliary_api.elina_tcons0_make_unsat
         elina_tcons0_make_unsat_c.restype = ElinaTcons0
         tcons = elina_tcons0_make_unsat_c()
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_make_unsat" from "libelinaux.so"')
 
@@ -109,6 +113,8 @@ def elina_tcons0_from_lincons0(lincons):
         elina_tcons0_from_lincons0_c.restype = ElinaTcons0
         elina_tcons0_from_lincons0_c.argtypes = [ElinaLincons0Ptr]
         tcons = elina_tcons0_from_lincons0_c(lincons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_from_lincons0" from "libelinaux.so"')
         print('Make sure you are passing ElinaLincons0Ptr to the function')
@@ -138,6 +144,8 @@ def elina_tcons0_copy(tcons2):
         elina_tcons0_copy_c.restype = ElinaTcons0
         elina_tcons0_copy_c.argtypes = [ElinaTcons0Ptr]
         tcons1 = elina_tcons0_copy_c(tcons2)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_copy" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -165,6 +173,8 @@ def elina_tcons0_clear(tcons):
         elina_tcons0_clear_c.restype = None
         elina_tcons0_clear_c.argtypes = [ElinaTcons0Ptr]
         elina_tcons0_clear_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_clear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -194,6 +204,8 @@ def elina_tcons0_fprint(stream, tcons, name_of_dim):
         elina_tcons0_fprint_c.restype = None
         elina_tcons0_fprint_c.argtypes = [c_void_p, ElinaTcons0Ptr, POINTER(c_char_p)]
         elina_tcons0_fprint_c(stream, tcons, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaTcons0Ptr, POINTER(c_char_p) to the function')
@@ -225,6 +237,8 @@ def elina_tcons0_is_interval_cst(tcons):
         elina_tcons0_is_interval_cst_c.restype = c_bool
         elina_tcons0_is_interval_cst_c.argtypes = [ElinaTcons0Ptr]
         result = elina_tcons0_is_interval_cst_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_is_interval_cst" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -255,6 +269,8 @@ def elina_tcons0_is_interval_linear(tcons):
         elina_tcons0_is_interval_linear_c.restype = c_bool
         elina_tcons0_is_interval_linear_c.argtypes = [ElinaTcons0Ptr]
         result = elina_tcons0_is_interval_linear_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_is_interval_linear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -285,6 +301,8 @@ def elina_tcons0_is_interval_polynomial(tcons):
         elina_tcons0_is_interval_polynomial_c.restype = c_bool
         elina_tcons0_is_interval_polynomial_c.argtypes = [ElinaTcons0Ptr]
         result = elina_tcons0_is_interval_polynomial_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_is_interval_polynomial" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -315,6 +333,8 @@ def elina_tcons0_is_interval_polyfrac(tcons):
         elina_tcons0_is_interval_polyfrac_c.restype = c_bool
         elina_tcons0_is_interval_polyfrac_c.argtypes = [ElinaTcons0Ptr]
         result = elina_tcons0_is_interval_polyfrac_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_is_interval_polyfrac" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -344,6 +364,8 @@ def elina_tcons0_is_scalar(tcons):
         elina_tcons0_is_scalar_c.restype = c_bool
         elina_tcons0_is_scalar_c.argtypes = [ElinaTcons0Ptr]
         result = elina_tcons0_is_scalar_c(tcons)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_is_scalar" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr to the function')
@@ -377,6 +399,8 @@ def elina_tcons0_add_dimensions_with(tcons, dimchange):
         elina_tcons0_add_dimensions_with_c.restype = None
         elina_tcons0_add_dimensions_with_c.argtypes = [ElinaTcons0Ptr, ElinaDimchangePtr]
         elina_tcons0_add_dimensions_with_c(tcons, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_add_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimchangePtr to the function')
@@ -406,6 +430,8 @@ def elina_tcons0_add_dimensions(tcons2, dimchange):
         elina_tcons0_add_dimensions_c.restype = ElinaTcons0
         elina_tcons0_add_dimensions_c.argtypes = [ElinaTcons0Ptr, ElinaDimchangePtr]
         tcons1 = elina_tcons0_add_dimensions_c(tcons2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_add_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimchangePtr to the function')
@@ -435,6 +461,8 @@ def elina_tcons0_remove_dimensions_with(tcons, dimchange):
         elina_tcons0_remove_dimensions_with_c.restype = None
         elina_tcons0_remove_dimensions_with_c.argtypes = [ElinaTcons0Ptr, ElinaDimchangePtr]
         elina_tcons0_remove_dimensions_with_c(tcons, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_remove_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimchangePtr to the function')
@@ -464,6 +492,8 @@ def elina_tcons0_remove_dimensions(tcons2, dimchange):
         elina_tcons0_remove_dimensions_c.restype = ElinaTcons0
         elina_tcons0_remove_dimensions_c.argtypes = [ElinaTcons0Ptr, ElinaDimchangePtr]
         tcons1 = elina_tcons0_remove_dimensions_c(tcons2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_remove_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimchangePtr to the function')
@@ -493,6 +523,8 @@ def elina_tcons0_permute_dimensions_with(tcons, dimperm):
         elina_tcons0_permute_dimensions_with_c.restype = None
         elina_tcons0_permute_dimensions_with_c.argtypes = [ElinaTcons0Ptr, ElinaDimpermPtr]
         elina_tcons0_permute_dimensions_with_c(tcons, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_permute_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimpermPtr to the function')
@@ -522,6 +554,8 @@ def elina_tcons0_permute_dimensions(tcons2, dimperm):
         elina_tcons0_permute_dimensions_c.restype = ElinaTcons0
         elina_tcons0_permute_dimensions_c.argtypes = [ElinaTcons0Ptr, ElinaDimpermPtr]
         tcons1 = elina_tcons0_permute_dimensions_c(tcons2, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_permute_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0Ptr, ElinaDimpermPtr to the function')
@@ -556,6 +590,8 @@ def elina_tcons0_array_make(size):
         elina_tcons0_array_make_c.restype = ElinaTcons0Array
         elina_tcons0_array_make_c.argtypes = [c_size_t]
         tcons_array = elina_tcons0_array_make_c(size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_make" from "libelinaux.so"')
         print('Make sure you are passing c_size_t to the function')
@@ -587,6 +623,8 @@ def elina_tcons0_array_resize(tcons_array, size):
         elina_tcons0_array_resize_c.restype = None
         elina_tcons0_array_resize_c.argtypes = [ElinaTcons0ArrayPtr, c_size_t]
         elina_tcons0_array_resize_c(tcons_array, size)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_resize" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, c_size_t to the function')
@@ -612,6 +650,8 @@ def elina_tcons0_array_clear(tcons_array):
         elina_tcons0_array_clear_c.restype = None
         elina_tcons0_array_clear_c.argtypes = [ElinaTcons0ArrayPtr]
         elina_tcons0_array_clear_c(tcons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_clear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, c_size_t to the function')
@@ -641,6 +681,8 @@ def elina_tcons0_array_fprint(stream, tcons_array, name_of_dim):
         elina_tcons0_array_fprint_c.restype = None
         elina_tcons0_array_fprint_c.argtypes = [c_void_p, ElinaTcons0ArrayPtr, POINTER(c_char_p)]
         elina_tcons0_array_fprint_c(stream, tcons_array, name_of_dim)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_fprint" from "libelinaux.so"')
         print('Make sure you are passing c_void_p, ElinaTcons0ArrayPtr, POINTER(c_char_p) to the function')
@@ -668,6 +710,8 @@ def elina_tcons0_array_is_interval_linear(tcons_array):
         elina_tcons0_array_is_interval_linear_c.restype = c_bool
         elina_tcons0_array_is_interval_linear_c.argtypes = [ElinaTcons0ArrayPtr]
         result = elina_tcons0_array_is_interval_linear_c(tcons_array)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_is_interval_linear" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr to the function')
@@ -701,6 +745,8 @@ def elina_tcons0_array_add_dimensions_with(tcons_array, dimchange):
         elina_tcons0_array_add_dimensions_with_c.restype = None
         elina_tcons0_array_add_dimensions_with_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimchangePtr]
         elina_tcons0_array_add_dimensions_with_c(tcons_array, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_add_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimchangePtr to the function')
@@ -730,6 +776,8 @@ def elina_tcons0_array_add_dimensions(tcons_array2, dimchange):
         elina_tcons0_array_add_dimensions_c.restype = ElinaTcons0Array
         elina_tcons0_array_add_dimensions_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimchangePtr]
         tcons_array1 = elina_tcons0_array_add_dimensions_c(tcons_array2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_add_dimensions_c" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimchangePtr to the function')
@@ -759,6 +807,8 @@ def elina_tcons0_array_remove_dimensions_with(tcons_array, dimchange):
         elina_tcons0_array_remove_dimensions_with_c.restype = None
         elina_tcons0_array_remove_dimensions_with_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimchangePtr]
         elina_tcons0_array_remove_dimensions_with_c(tcons_array, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_remove_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimchangePtr to the function')
@@ -788,6 +838,8 @@ def elina_tcons0_array_remove_dimensions(tcons_array2, dimchange):
         elina_tcons0_array_remove_dimensions_c.restype = ElinaTcons0Array
         elina_tcons0_array_remove_dimensions_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimchangePtr]
         tcons_array1 = elina_tcons0_array_remove_dimensions_c(tcons_array2, dimchange)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_remove_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimchangePtr to the function')
@@ -817,6 +869,8 @@ def elina_tcons0_array_permute_dimensions_with(tcons_array, dimperm):
         elina_tcons0_array_permute_dimensions_with_c.restype = None
         elina_tcons0_array_permute_dimensions_with_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimpermPtr]
         elina_tcons0_array_permute_dimensions_with_c(tcons_array, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_permute_dimensions_with" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimpermPtr to the function')
@@ -846,6 +900,8 @@ def elina_tcons0_array_permute_dimensions(tcons_array2, dimperm):
         elina_tcons0_array_permute_dimensions_c.restype = ElinaTcons0Array
         elina_tcons0_array_permute_dimensions_c.argtypes = [ElinaTcons0ArrayPtr, ElinaDimpermPtr]
         tcons_array1 = elina_tcons0_array_permute_dimensions_c(tcons_array2, dimperm)
+    except TimeoutError:
+        raise
     except:
         print('Problem with loading/calling "elina_tcons0_array_permute_dimensions" from "libelinaux.so"')
         print('Make sure you are passing ElinaTcons0ArrayPtr, ElinaDimpermPtr to the function')
