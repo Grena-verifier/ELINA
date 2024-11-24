@@ -1,7 +1,7 @@
 #ifdef GUROBI
 #include <stdlib.h>
 #include <stdio.h>
-#include </home/yuyi/loris5/PRIMA/gurobi912/linux64/include/gurobi_c.h>
+#include "../../gurobi912/linux64/include/gurobi_c.h"
 #endif
 
 #include "compute_bounds.h"
